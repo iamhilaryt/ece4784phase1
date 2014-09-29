@@ -3,19 +3,9 @@ clear
 
 % Initializing all Variables
 
-coffee= input('Did you just drink expresso/coffee?')
-
-if (coffee=='yes')
-    I= 5;
-else
-    I=0;
-end
-
-
-
-
-
 %-----Constants-----
+
+coffee= input('Did you just drink expresso/coffee?')
 
 %nernst potentials (mV)
 EK=-12;
@@ -26,7 +16,8 @@ Vrest=-70;
 %Capacitance (uF)
 Cm= 1; 
 
-
+%Initial current
+I=0;
 
 %Time Parameters
 step= .05; % if any larger than derivatives and changes will not work
@@ -71,7 +62,7 @@ gK(1)= ((n(1))^4)*g_K;
 % no need to initialize gL because its just gL
 
 
-%-----Iterating for simulation-----
+%Iterating for simulation
 % has to start at 2 or else eulers wont work
 for i=2:length(t)
     
