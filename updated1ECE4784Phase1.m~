@@ -23,7 +23,7 @@ Cm= 1;
 I=0;
 
 %Time Parameters
-step= 1
+step= .05; % if any larger than derivatives and changes will not work
 t=1:100;
 
 % Creating memory  
@@ -89,8 +89,9 @@ for i=2:length(t)
     IL = gL*(Vm(i-1)-EL);
     
     %Updating Iion = I?IK?INa?IL
-    Iion= I
+    Iion= I-INa-Ik-IL
     
+    derivativeVm= step*(Iion/cm);
 % Provided equations
 
 % Gating variables:
